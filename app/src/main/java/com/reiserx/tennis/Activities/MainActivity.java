@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         requestOcr = new requestOcr();
-            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(cameraIntent, CAMERA_REQUEST);
+//            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//            startActivityForResult(cameraIntent, CAMERA_REQUEST);
     }
 
     @Override
