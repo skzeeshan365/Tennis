@@ -11,6 +11,7 @@ android {
 
     compileSdk 32
 
+
     buildFeatures {
         viewBinding true
     }
@@ -48,4 +49,8 @@ dependencies {
     implementation platform('com.google.cloud:libraries-bom:26.1.5')
 
     implementation 'com.google.cloud:google-cloud-vision'
+
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.2"))
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
 }
