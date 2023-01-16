@@ -78,10 +78,14 @@ public class requestOcr {
 
             handler.post(() -> {
                 try {
-                    if (jsonObject.getInt("success") == 1) {
-                        output.setText(jsonObject.getString("response"));
+                    if (jsonObject != null) {
+                        if (jsonObject.getInt("success") == 1) {
+                            output.setText(jsonObject.getString("response"));
+                        } else {
+                            output.setText("Error code 0: ".concat(jsonObject.getString("response")));
+                        }
                     } else {
-                        output.setText("Error code 0: ".concat(jsonObject.getString("response")));
+                        output.setText(result);
                     }
                     if (outputHolder.getVisibility() == View.GONE)
                         outputHolder.setVisibility(View.VISIBLE);
@@ -133,7 +137,6 @@ public class requestOcr {
                         .build();
                 Response response = client.newCall(apiRequest).execute();
                 result = Objects.requireNonNull(response.body()).string();
-
                 jsonObject = new JSONObject(result);
 
                 prog.dismiss();
@@ -147,10 +150,14 @@ public class requestOcr {
 
             handler.post(() -> {
                 try {
-                    if (jsonObject.getInt("success") == 1) {
-                        text.setText(jsonObject.getString("response"));
+                    if (jsonObject != null) {
+                        if (jsonObject.getInt("success") == 1) {
+                            text.setText(jsonObject.getString("response"));
+                        } else {
+                            output.setText("Error code 0: ".concat(jsonObject.getString("response")));
+                        }
                     } else {
-                        output.setText("Error code 0: ".concat(jsonObject.getString("response")));
+                        output.setText(result);
                     }
                     if (outputHolder.getVisibility() == View.GONE)
                         outputHolder.setVisibility(View.VISIBLE);
